@@ -4,10 +4,15 @@ import handler.MessageHandler;
 
 import java.util.List;
 
+import Main.CrawlerThread;
 import Main.Main;
 import bean.DanMuServerInfo;
 
 public class RecLisForDMServer implements MessageHandler.OnReceiveListener{
+	private CrawlerThread crawlerThread;
+	public RecLisForDMServer(CrawlerThread crawlerThread) {
+		this.crawlerThread = crawlerThread;
+	}
 
 	@Override
 	public void onReceive(List<String> responses) {
@@ -23,7 +28,7 @@ public class RecLisForDMServer implements MessageHandler.OnReceiveListener{
 						danMuServerInfo.setPort(a.substring(7));
 					}
 					if(danMuServerInfo.getIp() != null && danMuServerInfo.getPort() != null){
-						Main.danMuServerInfos.add(danMuServerInfo);
+						crawlerThread.danMuServerInfos.add(danMuServerInfo);
 						danMuServerInfo = new DanMuServerInfo();
 					}
 				}
@@ -31,9 +36,9 @@ public class RecLisForDMServer implements MessageHandler.OnReceiveListener{
 			if(eachString.indexOf("setmsggroup") != -1){ //找到类型为setmsggroup的字串
 				for (String a : eachString.split("/")) {
 					if(a.indexOf("rid@=") != -1){
-						Main.rid = a.substring(5);
+						crawlerThread.rid = a.substring(5);
 					} else if(a.indexOf("gid@=") != -1){
-						Main.gid = a.substring(5);
+						crawlerThread.gid = a.substring(5);
 					}
 					
 				}
@@ -44,7 +49,7 @@ public class RecLisForDMServer implements MessageHandler.OnReceiveListener{
 	
 	@Override
 	public boolean isFinished() {
-		if(Main.rid != null && Main.gid != null){
+		if(crawlerThread.rid != null && crawlerThread.gid != null){
 			return true;
 		}else return false;
 	}

@@ -1,41 +1,25 @@
 package Main;
 
-import handler.MessageHandler;
-
 import java.io.IOException;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
-
-import org.jsoup.nodes.Document;
-import org.jsoup.Jsoup;
-
-import utils.MD5Util;
-import utils.MatchFromString;
-
-import ReceiveListener.RecLisForDM;
-import ReceiveListener.RecLisForDMServer;
-import ReceiveListener.RecLisForLogRes;
-import bean.DanMuServerInfo;
-import bean.DouYuServerInfo;
-import bean.Request;
 
 
 
 public class Main {
-	public static List<DanMuServerInfo> danMuServerInfos = new ArrayList<>();//保存斗鱼弹幕服务器的信息
-	public static String rid;//房间号
-	public static String gid;//弹幕群组编号
-	public static String roomName;//房间名
-	public static int roomId;//房间Id
-	public static List<DouYuServerInfo> douYuServerInfos;//保存斗鱼服务器的信息
+//	public static List<DanMuServerInfo> danMuServerInfos = new ArrayList<>();//保存斗鱼弹幕服务器的信息
+//	public static String rid;//房间号
+//	public static String gid;//弹幕群组编号
+//	public static String roomName;//房间名
+//	public static int roomId;//房间Id
+//	public static List<DouYuServerInfo> douYuServerInfos;//保存斗鱼服务器的信息
 
 	public static void main(String[] args) throws IOException {
 		System.out.print("请输入网址：");
 		String threadUrl = new Scanner(System.in).nextLine();
 		
+		new Thread(new CrawlerThread("http://www.douyu.com/485503"), "Crawler-1").start();
+		new Thread(new CrawlerThread("http://www.douyu.com/56040"), "Crawler-2").start();
+		/*
 		//step1 : 获取html源码
 		Document doc = (Document) Jsoup.connect(threadUrl).get();
 		
@@ -85,7 +69,7 @@ public class Main {
 		}).start();
 	    //step5 ： 接收弹幕信息
 	    MessageHandler.receive(socketDanMu, new RecLisForDM());
-	    
+	    */
 	}
 
 	public static String deFilterStr(String str) {
