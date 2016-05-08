@@ -3,16 +3,28 @@ package com.example.zhaimeng.douyuhelper.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.j256.ormlite.field.DatabaseField;
+
 /**
  * Created by zhaimeng on 2016/4/26.
  */
 public class DanMu implements Parcelable{
+    @DatabaseField(generatedId = true)
+    private int id;
+    @DatabaseField(columnName = "nickname")
     private String nickname;
+    @DatabaseField(columnName = "content")
     private String content;
+    @DatabaseField(columnName = "level")
     private int level;
+    @DatabaseField(columnName = "roomID")
     private String roomID;
+    @DatabaseField(columnName = "danmuGroupID")
     private String danmuGroupID;
 
+    public int getID() {
+        return id;
+    }
     public String getNickname() {
         return nickname;
     }
@@ -33,6 +45,9 @@ public class DanMu implements Parcelable{
         return danmuGroupID;
     }
 
+    public void setID(int id) {
+        this.id = id;
+    }
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
@@ -97,7 +112,13 @@ public class DanMu implements Parcelable{
         danmuGroupID = in.readString();
     }
 
-    public DanMu(){
-
+    public DanMu(String nickname, String content, int level, String roomID, String danmuGroupID){
+        setNickname(nickname);
+        setContent(content);
+        setLevel(level);
+        setRoomID(roomID);
+        setDanmuGroupID(danmuGroupID);
     }
+
+    public DanMu(){}
 }

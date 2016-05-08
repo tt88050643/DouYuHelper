@@ -3,7 +3,7 @@ package com.example.zhaimeng.douyuhelper.ReceiveListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Parcelable;
+import android.util.Log;
 
 import com.example.zhaimeng.douyuhelper.Main.CrawlerThread;
 import com.example.zhaimeng.douyuhelper.Main.MainActivity;
@@ -14,12 +14,13 @@ import java.util.List;
 
 public class RecLisForDM implements MessageHandler.OnReceiveListener{
 	CrawlerThread crawlerThread;
-	Handler handler;
-
+	Handler mainHandler;
+	Handler databaseHandler;
 	int flag = 0;
-	public RecLisForDM(CrawlerThread crawlerThread, Handler handler) {
+	public RecLisForDM(CrawlerThread crawlerThread, Handler mainHandler, Handler databaseHandler) {
 		this.crawlerThread = crawlerThread;
-		this.handler = handler;
+		this.mainHandler = mainHandler;
+		this.databaseHandler = databaseHandler;
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class RecLisForDM implements MessageHandler.OnReceiveListener{
 						danMu.setLevel(Integer.parseInt(a.substring(7)));
 					}
 				}
-				System.out.println("【线程名】: " + Thread.currentThread().getName() + "【用户】：" + danMu.getNickname() + "【弹幕】：" + danMu.getContent());
+				Log.i("TAG", "【线程名】: " + Thread.currentThread().getName() + "【用户】：" + danMu.getNickname() + "【弹幕】：" + danMu.getContent());
 
 				Bundle bundle = new Bundle();
 				bundle.putParcelable("DanMu", danMu);
@@ -50,7 +51,14 @@ public class RecLisForDM implements MessageHandler.OnReceiveListener{
 				Message message = Message.obtain();
 				message.setData(bundle);
 				message.arg1 = 11;
-				handler.sendMessage(message);
+				mainHandler.sendMessage(message);//给UI线程发送弹幕消息
+
+//				Bundle bundle1 = new Bundle();
+//				bundle1.putParcelable("DanMu", danMu);
+				Message message1 = Message.obtain();
+				message1.setData(bundle);
+				message1.arg1 = 11;
+				databaseHandler.sendMessage(message1);//给数据库线程发送弹幕消息
 				//danMu.clear();
 			}
 		}

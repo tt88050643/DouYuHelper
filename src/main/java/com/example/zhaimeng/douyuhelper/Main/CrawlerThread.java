@@ -31,11 +31,12 @@ public class CrawlerThread implements Runnable{
 	public List<DanMuServerInfo> danMuServerInfos = new ArrayList<>();//保存斗鱼弹幕服务器的信息
 	public String rid;//房间号
 	public String gid;//弹幕群组编号
-	private Handler handler;
-
-	public CrawlerThread(String threadUrl, Handler handler){
+	private Handler mainHandler;
+	private Handler databaseHandler;
+	public CrawlerThread(String threadUrl, Handler mainHandler, Handler databaseHandler){
 		this.threadUrl = threadUrl;
-		this.handler = handler;
+		this.mainHandler = mainHandler;
+		this.databaseHandler = databaseHandler;
 	}
 	@Override
 	public void run(){
@@ -89,7 +90,7 @@ public class CrawlerThread implements Runnable{
 			}).start();
 			
 		    //step5 ： 接收弹幕信息
-		    MessageHandler.receive(socketDanMu, new RecLisForDM(CrawlerThread.this, handler));
+		    MessageHandler.receive(socketDanMu, new RecLisForDM(CrawlerThread.this, mainHandler, databaseHandler));
 		    
 		} catch (IOException e) {
 			
