@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.zhaimeng.douyuhelper.Adapter.MyAdapter;
+import com.example.zhaimeng.douyuhelper.Adapter.ShowDanMuAdapter;
 import com.example.zhaimeng.douyuhelper.Main.CrawlerThread;
 import com.example.zhaimeng.douyuhelper.Main.MainActivity;
 import com.example.zhaimeng.douyuhelper.R;
-import com.example.zhaimeng.douyuhelper.bean.DanMu;
+import com.example.zhaimeng.douyuhelper.Bean.DanMu;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class ShowDanMuFragment extends Fragment {
     private ListView listView;
     public Handler mainHandler;
     public ArrayList<DanMu> danMuList = new ArrayList();
-    private MyAdapter myAdapter;
+    private ShowDanMuAdapter showDanMuAdapter;
     private View view;
 
     @Override
@@ -53,9 +53,9 @@ public class ShowDanMuFragment extends Fragment {
 
 
     private void initView() {
-        listView = (ListView) view.findViewById(R.id.lv_list);
-        myAdapter = new MyAdapter(mActivity, danMuList);
-        listView.setAdapter(myAdapter);
+        listView = (ListView) view.findViewById(R.id.lv_showDanMu);
+        showDanMuAdapter = new ShowDanMuAdapter(mActivity, danMuList);
+        listView.setAdapter(showDanMuAdapter);
     }
 
     private void initData() {
@@ -69,7 +69,7 @@ public class ShowDanMuFragment extends Fragment {
                     //ItemView itemView = new ItemView(danMu.getNickname(), danMu.getContent());
                     if(danMu != null) {
                         //listView.addFooterView(danmuView);
-                        myAdapter.notifyDataSetChanged();
+                        showDanMuAdapter.notifyDataSetChanged();
                     }
                     listView.setSelection(listView.getCount() - 1);
                 }

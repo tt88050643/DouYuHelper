@@ -1,4 +1,4 @@
-package com.example.zhaimeng.douyuhelper.handler;
+package com.example.zhaimeng.douyuhelper.Handler;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,8 +7,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.example.zhaimeng.douyuhelper.bean.Message;
-import com.example.zhaimeng.douyuhelper.utils.HexUtil;
+import com.example.zhaimeng.douyuhelper.Bean.Message;
+import com.example.zhaimeng.douyuhelper.Utils.HexUtil;
 
 /**
  * Created by Brucezz on 2016/01/04.

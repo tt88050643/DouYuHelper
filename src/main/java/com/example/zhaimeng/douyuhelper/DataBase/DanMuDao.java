@@ -2,7 +2,7 @@ package com.example.zhaimeng.douyuhelper.DataBase;
 
 import android.content.Context;
 
-import com.example.zhaimeng.douyuhelper.bean.DanMu;
+import com.example.zhaimeng.douyuhelper.Bean.DanMu;
 import com.j256.ormlite.dao.Dao;
 
 import java.sql.SQLException;

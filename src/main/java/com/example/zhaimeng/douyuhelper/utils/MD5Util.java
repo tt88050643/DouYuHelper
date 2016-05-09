@@ -1,4 +1,4 @@
-package com.example.zhaimeng.douyuhelper.utils;
+package com.example.zhaimeng.douyuhelper.Utils;
 
 import java.security.MessageDigest;
 

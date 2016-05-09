@@ -44,17 +44,17 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
        // new Thread(new CrawlerThread("http://www.douyu.com/pis", showDanMuFragment.mainHandler, dataBaseHandler), "Crawler-1").start();//开启接收弹幕线程
     }
 
-    /**
-     * 初始化fragment, 将fragment数据填充给布局文件
-     */
-    private void initFragment() {
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();// 开启事务
-        showDanMuFragment = new ShowDanMuFragment();
-        transaction.replace(R.id.blank_fragment_container, showDanMuFragment, SHOWDANMUFRAGMENT);
-        transaction.commit();// 提交事务
-
-    }
+//    /**
+//     * 初始化fragment, 将fragment数据填充给布局文件
+//     */
+//    private void initFragment() {
+//        FragmentManager fm = getSupportFragmentManager();
+//        FragmentTransaction transaction = fm.beginTransaction();// 开启事务
+//        showDanMuFragment = new ShowDanMuFragment();
+//        transaction.replace(R.id.blank_fragment_container, showDanMuFragment, SHOWDANMUFRAGMENT);
+//        transaction.commit();// 提交事务
+//
+//    }
 
     private void setViewPager() {
         titleList = new ArrayList<String>();

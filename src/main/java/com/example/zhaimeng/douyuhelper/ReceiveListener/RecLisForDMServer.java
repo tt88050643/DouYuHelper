@@ -1,10 +1,9 @@
 package com.example.zhaimeng.douyuhelper.ReceiveListener;
 
 import java.util.List;
-import com.example.zhaimeng.douyuhelper.handler.MessageHandler;
+import com.example.zhaimeng.douyuhelper.Handler.MessageHandler;
 import com.example.zhaimeng.douyuhelper.Main.CrawlerThread;
-import com.example.zhaimeng.douyuhelper.bean.DouYuServerInfo;
-import com.example.zhaimeng.douyuhelper.bean.DanMuServerInfo;
+import com.example.zhaimeng.douyuhelper.Bean.DanMuServerInfo;
 import com.example.zhaimeng.douyuhelper.Main.MainActivity;
 
 

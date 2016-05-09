@@ -1,11 +1,11 @@
-package com.example.zhaimeng.douyuhelper.utils;
+package com.example.zhaimeng.douyuhelper.Utils;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.example.zhaimeng.douyuhelper.bean.DouYuServerInfo;
+import com.example.zhaimeng.douyuhelper.Bean.DouYuServerInfo;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

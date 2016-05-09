@@ -2,11 +2,9 @@ package com.example.zhaimeng.douyuhelper.ReceiveListener;
 
 import com.example.zhaimeng.douyuhelper.Main.CrawlerThread;
 
-import com.example.zhaimeng.douyuhelper.handler.MessageHandler;
+import com.example.zhaimeng.douyuhelper.Handler.MessageHandler;
 
 import java.util.List;
-
-import com.example.zhaimeng.douyuhelper.Main.CrawlerThread;
 
 public class RecLisForLogRes implements MessageHandler.OnReceiveListener{
 

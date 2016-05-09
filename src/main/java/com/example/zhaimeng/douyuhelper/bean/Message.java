@@ -1,4 +1,4 @@
-package com.example.zhaimeng.douyuhelper.bean;
+package com.example.zhaimeng.douyuhelper.Bean;
 
 
 import java.io.ByteArrayOutputStream;

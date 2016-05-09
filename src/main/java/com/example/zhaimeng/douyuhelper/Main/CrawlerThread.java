@@ -2,7 +2,6 @@ package com.example.zhaimeng.douyuhelper.Main;
 
 
 import android.os.Handler;
-import android.os.Message;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -12,15 +11,15 @@ import java.util.UUID;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import com.example.zhaimeng.douyuhelper.utils.MD5Util;
-import com.example.zhaimeng.douyuhelper.utils.MatchFromString;
+import com.example.zhaimeng.douyuhelper.Utils.MD5Util;
+import com.example.zhaimeng.douyuhelper.Utils.MatchFromString;
 import com.example.zhaimeng.douyuhelper.ReceiveListener.RecLisForDM;
 import com.example.zhaimeng.douyuhelper.ReceiveListener.RecLisForDMServer;
 import com.example.zhaimeng.douyuhelper.ReceiveListener.RecLisForLogRes;
-import com.example.zhaimeng.douyuhelper.bean.DanMuServerInfo;
-import com.example.zhaimeng.douyuhelper.bean.DouYuServerInfo;
-import com.example.zhaimeng.douyuhelper.bean.Request;
-import com.example.zhaimeng.douyuhelper.handler.MessageHandler;
+import com.example.zhaimeng.douyuhelper.Bean.DanMuServerInfo;
+import com.example.zhaimeng.douyuhelper.Bean.DouYuServerInfo;
+import com.example.zhaimeng.douyuhelper.Bean.Request;
+import com.example.zhaimeng.douyuhelper.Handler.MessageHandler;
 
 public class CrawlerThread implements Runnable{
 	

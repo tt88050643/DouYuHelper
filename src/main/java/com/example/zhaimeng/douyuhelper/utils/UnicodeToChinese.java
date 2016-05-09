@@ -1,4 +1,4 @@
-package com.example.zhaimeng.douyuhelper.utils;
+package com.example.zhaimeng.douyuhelper.Utils;
 
 public class UnicodeToChinese {
 	public static String convertUnicode(String ori){

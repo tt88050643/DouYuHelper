@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_danmu_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -14,7 +14,7 @@
         android:textColor="@android:color/holo_green_dark" />
 
     <TextView
-        android:id="@+id/tv_content"
+        android:id="@+id/tv_danmu_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="3"

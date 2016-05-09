@@ -3,7 +3,7 @@ package com.example.zhaimeng.douyuhelper.DataBase;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.zhaimeng.douyuhelper.bean.DanMu;
+import com.example.zhaimeng.douyuhelper.Bean.DanMu;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;

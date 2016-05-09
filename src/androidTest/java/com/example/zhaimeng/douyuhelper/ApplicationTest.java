@@ -7,8 +7,9 @@ import android.test.ApplicationTestCase;
 import android.util.Log;
 
 import com.example.zhaimeng.douyuhelper.DataBase.DanMuDao;
-import com.example.zhaimeng.douyuhelper.bean.DanMu;
+import com.example.zhaimeng.douyuhelper.Bean.DanMu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,5 +42,30 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         while(cursor.moveToNext()){
             Log.i("TAG", cursor.getString(cursor.getColumnIndex("nickname")));
         }
+    }
+
+    /**
+     * 从数据库中查出发言前10的用户的NickName
+     * @return
+     */
+    public ArrayList<String> findTop10NickName() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        String dbPath = getContext().getDatabasePath("danmu.db").toString();
+        SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbPath, null);
+        //查询：nickname，以发言次数排名（降序）
+        Cursor cursor = db.rawQuery("select nickname from (select nickname, content, count(*) from (select nickname, content from danmu order by nickname) group by nickname having count(*) > 2) order by (count(*)) desc", null);
+        int count = 0;
+        //拿到发言数量前十的NickName
+        while(cursor.moveToNext() && count<=9){
+            Log.i("TAG", cursor.getString(cursor.getColumnIndex("nickname")));
+            arrayList.add(cursor.getString(cursor.getColumnIndex("nickname")));
+            count++;
+        }
+
+        for (String s : arrayList) {
+            Log.i("TAG", s);
+        }
+        return arrayList;
+
     }
 }

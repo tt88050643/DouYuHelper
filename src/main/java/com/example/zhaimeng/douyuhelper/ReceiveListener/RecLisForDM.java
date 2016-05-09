@@ -7,8 +7,8 @@ import android.util.Log;
 
 import com.example.zhaimeng.douyuhelper.Main.CrawlerThread;
 import com.example.zhaimeng.douyuhelper.Main.MainActivity;
-import com.example.zhaimeng.douyuhelper.bean.DanMu;
-import com.example.zhaimeng.douyuhelper.handler.MessageHandler;
+import com.example.zhaimeng.douyuhelper.Bean.DanMu;
+import com.example.zhaimeng.douyuhelper.Handler.MessageHandler;
 
 import java.util.List;
 

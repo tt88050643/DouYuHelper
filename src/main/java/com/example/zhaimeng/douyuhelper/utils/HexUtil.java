@@ -1,4 +1,4 @@
-package com.example.zhaimeng.douyuhelper.utils;
+package com.example.zhaimeng.douyuhelper.Utils;
 
 public class HexUtil {
     private final static String HEX_STRING = "0123456789ABCDEF";
