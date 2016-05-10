@@ -13,10 +13,11 @@ import com.example.zhaimeng.douyuhelper.Handler.MessageHandler;
 import java.util.List;
 
 public class RecLisForDM implements MessageHandler.OnReceiveListener{
-	CrawlerThread crawlerThread;
-	Handler mainHandler;
-	Handler databaseHandler;
-	int flag = 0;
+	private CrawlerThread crawlerThread;
+	private Handler mainHandler;
+	private Handler databaseHandler;
+	//public static DanMu danMu;
+
 	public RecLisForDM(CrawlerThread crawlerThread, Handler mainHandler, Handler databaseHandler) {
 		this.crawlerThread = crawlerThread;
 		this.mainHandler = mainHandler;
@@ -53,8 +54,6 @@ public class RecLisForDM implements MessageHandler.OnReceiveListener{
 				message.arg1 = 11;
 				mainHandler.sendMessage(message);//给UI线程发送弹幕消息
 
-//				Bundle bundle1 = new Bundle();
-//				bundle1.putParcelable("DanMu", danMu);
 				Message message1 = Message.obtain();
 				message1.setData(bundle);
 				message1.arg1 = 11;

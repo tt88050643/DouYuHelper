@@ -53,7 +53,7 @@ public class ShowDanMuAdapter extends BaseAdapter {
         ShowDanMuAdapter.ViewHolder holder = null;
         Log.i("position", "" + position);
         if(convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.danmu_item, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_danmu, null);
             holder = new ShowDanMuAdapter.ViewHolder();
             holder.tvName = (TextView) convertView.findViewById(R.id.tv_danmu_name);
             holder.tvContent = (TextView) convertView.findViewById(R.id.tv_danmu_content);

@@ -29,7 +29,7 @@ public class DataBaseThread implements Runnable {
                 if(msg.arg1 == 11){
                     DanMu danMu = msg.getData().getParcelable("DanMu");
                     if(danMu != null) {
-                        danMuDao.add(danMu);
+                        danMuDao.add(danMu);//入库
                     }
                     Log.i("TAG", "" + danMuDao.queryAll().size());
                 }

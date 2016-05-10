@@ -1,5 +1,7 @@
 package com.example.zhaimeng.douyuhelper.ReceiveListener;
 
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
+
 import com.example.zhaimeng.douyuhelper.Main.CrawlerThread;
 
 import com.example.zhaimeng.douyuhelper.Handler.MessageHandler;
@@ -25,7 +27,11 @@ public class RecLisForLogRes implements MessageHandler.OnReceiveListener{
 	}
 	@Override
 	public boolean isFinished() {
-		return flag == 1 ? true : false;
+		if(flag == 1) return true;
+		else{
+			flag = 0;
+			return false;
+		}
 	}
 	
 }
